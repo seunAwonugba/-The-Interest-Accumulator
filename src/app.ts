@@ -31,7 +31,7 @@ app.get("/health", (req, res) => {
 app.use("*", (req, res) => {
     res.status(StatusCodes.NOT_FOUND).json({
         success: false,
-        data: `Auth service ${ReasonPhrases.NOT_FOUND.toLowerCase()}`,
+        data: `service ${ReasonPhrases.NOT_FOUND.toLowerCase()}`,
     });
 });
 // app.use(errorMiddleware);
@@ -40,11 +40,11 @@ const startServer = async () => {
     try {
         app.listen(Number(process.env.PORT), String(process.env.HOST), () => {
             console.log(
-                `⚡️[auth-services]: Server is running at http://${process.env.HOST}:${process.env.PORT}`,
+                `⚡️[server]: Server is running at http://${process.env.HOST}:${process.env.PORT}`,
             );
         });
     } catch (error) {
-        console.log("😥 [auth-services]", error);
+        console.log("😥 [server]", error);
         process.exit(1);
     }
 };
